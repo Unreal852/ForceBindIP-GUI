@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtFBIPath = new System.Windows.Forms.TextBox();
-            this.btnSelectFBIPath = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbNetworkAdapter = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,45 +38,11 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ForceBindIP Path:";
-            // 
-            // txtFBIPath
-            // 
-            this.txtFBIPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.txtFBIPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFBIPath.ForeColor = System.Drawing.Color.White;
-            this.txtFBIPath.Location = new System.Drawing.Point(143, 6);
-            this.txtFBIPath.Name = "txtFBIPath";
-            this.txtFBIPath.Size = new System.Drawing.Size(239, 20);
-            this.txtFBIPath.TabIndex = 1;
-            // 
-            // btnSelectFBIPath
-            // 
-            this.btnSelectFBIPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
-            this.btnSelectFBIPath.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(62)))));
-            this.btnSelectFBIPath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelectFBIPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectFBIPath.ForeColor = System.Drawing.Color.White;
-            this.btnSelectFBIPath.Location = new System.Drawing.Point(386, 5);
-            this.btnSelectFBIPath.Name = "btnSelectFBIPath";
-            this.btnSelectFBIPath.Size = new System.Drawing.Size(30, 21);
-            this.btnSelectFBIPath.TabIndex = 2;
-            this.btnSelectFBIPath.Text = "...";
-            this.btnSelectFBIPath.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(125, 13);
             this.label2.TabIndex = 3;
@@ -92,7 +55,7 @@
             this.cmbNetworkAdapter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbNetworkAdapter.ForeColor = System.Drawing.Color.White;
             this.cmbNetworkAdapter.FormattingEnabled = true;
-            this.cmbNetworkAdapter.Location = new System.Drawing.Point(143, 32);
+            this.cmbNetworkAdapter.Location = new System.Drawing.Point(143, 6);
             this.cmbNetworkAdapter.Name = "cmbNetworkAdapter";
             this.cmbNetworkAdapter.Size = new System.Drawing.Size(273, 21);
             this.cmbNetworkAdapter.TabIndex = 4;
@@ -101,7 +64,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 62);
+            this.label3.Location = new System.Drawing.Point(12, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 5;
@@ -112,7 +75,7 @@
             this.txtTargetApp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
             this.txtTargetApp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTargetApp.ForeColor = System.Drawing.Color.White;
-            this.txtTargetApp.Location = new System.Drawing.Point(143, 59);
+            this.txtTargetApp.Location = new System.Drawing.Point(143, 33);
             this.txtTargetApp.Name = "txtTargetApp";
             this.txtTargetApp.Size = new System.Drawing.Size(239, 20);
             this.txtTargetApp.TabIndex = 6;
@@ -124,7 +87,7 @@
             this.btnOpenTargetApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOpenTargetApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenTargetApplication.ForeColor = System.Drawing.Color.White;
-            this.btnOpenTargetApplication.Location = new System.Drawing.Point(386, 58);
+            this.btnOpenTargetApplication.Location = new System.Drawing.Point(386, 32);
             this.btnOpenTargetApplication.Name = "btnOpenTargetApplication";
             this.btnOpenTargetApplication.Size = new System.Drawing.Size(30, 21);
             this.btnOpenTargetApplication.TabIndex = 7;
@@ -135,7 +98,7 @@
             // 
             this.chk64b.AutoSize = true;
             this.chk64b.ForeColor = System.Drawing.Color.White;
-            this.chk64b.Location = new System.Drawing.Point(15, 88);
+            this.chk64b.Location = new System.Drawing.Point(15, 62);
             this.chk64b.Name = "chk64b";
             this.chk64b.Size = new System.Drawing.Size(109, 17);
             this.chk64b.TabIndex = 8;
@@ -148,7 +111,7 @@
             this.btnLaunch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(122)))));
             this.btnLaunch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLaunch.ForeColor = System.Drawing.Color.White;
-            this.btnLaunch.Location = new System.Drawing.Point(143, 88);
+            this.btnLaunch.Location = new System.Drawing.Point(143, 62);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(273, 21);
             this.btnLaunch.TabIndex = 9;
@@ -160,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(57)))), ((int)(((byte)(62)))));
-            this.ClientSize = new System.Drawing.Size(425, 117);
+            this.ClientSize = new System.Drawing.Size(425, 91);
             this.Controls.Add(this.btnLaunch);
             this.Controls.Add(this.chk64b);
             this.Controls.Add(this.btnOpenTargetApplication);
@@ -168,9 +131,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbNetworkAdapter);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSelectFBIPath);
-            this.Controls.Add(this.txtFBIPath);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -183,10 +143,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFBIPath;
-        private System.Windows.Forms.Button btnSelectFBIPath;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbNetworkAdapter;
         private System.Windows.Forms.Label label3;

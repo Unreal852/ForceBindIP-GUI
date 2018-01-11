@@ -8,65 +8,43 @@ namespace ForceBindIP_GUI
 {
     public partial class frmMain : Form
     {
-        private Properties.Settings m_settings = Properties.Settings.Default;
+        private readonly string[] RequieredFiles = new string[] {"BindIP.dll", "BindIP64.dll", "ForceBindIP.exe", "ForceBindIP64.exe"};
 
         public frmMain()
         {
             InitializeComponent();
 
-            btnSelectFBIPath.Click += OnSelectFBIPathClicked;
-            btnOpenTargetApplication.Click += OnOpenAppClicked;
-            btnLaunch.Click += OnLaunchClicked;
+            CheckRequieredFiles();
 
-            ForceBindIPPath = AppSettings.FBIPath;
-
-            LoadAvailableNetworkAdapters();
+            btnOpenTargetApplication.Click += (sender, e) => OpenAppSelector();
+            btnLaunch.Click += (sender , e) => LaunchApp();
+            cmbNetworkAdapter.DropDown += (sender, e) => LoadAvailableNetworkAdapters();
         }
 
-        private Properties.Settings AppSettings => m_settings;
+        private string ForceBindIPPath => Environment.CurrentDirectory;
 
-        public string ForceBindIPPath
+        private string ForceBindExe => chk64b.Checked ? "ForceBindIP64.exe" : "ForceBindIP.exe";
+
+        /// <summary>
+        /// Check if all ForceBindIP files are in the directory
+        /// </summary>
+        private void CheckRequieredFiles()
         {
-            get { return txtFBIPath.Text; }
-            set
+            string curDir = Environment.CurrentDirectory;
+            foreach(string s in RequieredFiles)
             {
-                if (Directory.Exists(value) && txtFBIPath.Text != value)
+                if(!File.Exists(Path.Combine(curDir, s)))
                 {
-                    txtFBIPath.Text = value;
-                    if (AppSettings.FBIPath != value)
-                    {
-                        AppSettings.FBIPath = value;
-                        AppSettings.Save();
-                        AppSettings.Reload();
-                    }
+                    MessageBox.Show("Couldn't find ForceBindIP files", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Environment.Exit(-1);
                 }
             }
         }
 
-        public string ForceBindExe => chk64b.Checked ? "ForceBindIP64.exe" : "ForceBindIP.exe";
-
-        private void OnSelectFBIPathClicked(object sender, EventArgs e)
-        {
-            FolderBrowserDialog diag = new FolderBrowserDialog();
-            if (!String.IsNullOrEmpty(ForceBindIPPath) && ForceBindIPPath.Length > 0)
-                diag.SelectedPath = ForceBindIPPath;
-            diag.Description = "Choose the ForceBindIP install path";
-            diag.ShowNewFolderButton = false;
-            if(diag.ShowDialog() == DialogResult.OK)
-                ForceBindIPPath = diag.SelectedPath;
-        }
-
-        private void OnOpenAppClicked(object sender, EventArgs e)
-        {
-            OpenFileDialog diag = new OpenFileDialog();
-            diag.Filter = "Application (*.exe)|*.exe";
-            diag.Multiselect = false;
-            diag.Title = "Select a application to open";
-            if (diag.ShowDialog() == DialogResult.OK)
-                txtTargetApp.Text = diag.FileName;
-        }
-
-        private void OnLaunchClicked(object sender, EventArgs e)
+        /// <summary>
+        /// Launch the selected app on the given network adapter
+        /// </summary>
+        private void LaunchApp()
         {
             try
             {
@@ -78,10 +56,23 @@ namespace ForceBindIP_GUI
                 psi.WorkingDirectory = Path.GetDirectoryName(txtTargetApp.Text);
                 Process.Start(psi);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        /// <summary>
+        /// Open the application selector
+        /// </summary>
+        private void OpenAppSelector()
+        {
+            OpenFileDialog diag = new OpenFileDialog();
+            diag.Filter = "Application (*.exe)|*.exe";
+            diag.Multiselect = false;
+            diag.Title = "Select a application to open";
+            if (diag.ShowDialog() == DialogResult.OK)
+                txtTargetApp.Text = diag.FileName;
         }
 
         /// <summary>
@@ -89,6 +80,7 @@ namespace ForceBindIP_GUI
         /// </summary>
         private void LoadAvailableNetworkAdapters()
         {
+            cmbNetworkAdapter.Items.Clear();
             foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
             {
                 if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
@@ -102,5 +94,9 @@ namespace ForceBindIP_GUI
             }
         }
 
+        private void CmbNetworkAdapter_DropDown(object sender, EventArgs e)
+        {
+            LoadAvailableNetworkAdapters();
+        }
     }
 }

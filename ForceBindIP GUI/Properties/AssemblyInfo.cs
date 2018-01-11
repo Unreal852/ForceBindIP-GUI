@@ -6,18 +6,18 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("ForceBindIP GUI")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("ForceBindIP GUI")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Unreal852")]
 [assembly: AssemblyProduct("ForceBindIP GUI")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCopyright("Copyright © Unreal852  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // L'affectation de la valeur false à ComVisible rend les types invisibles dans cet assembly
 // aux composants COM. Si vous devez accéder à un type dans cet assembly à partir de
 // COM, affectez la valeur true à l'attribut ComVisible sur ce type.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // Le GUID suivant est pour l'ID de la typelib si ce projet est exposé à COM
 [assembly: Guid("2aa41a9a-fe12-4176-bf14-1c91e721dd5b")]
